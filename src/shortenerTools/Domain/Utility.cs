@@ -82,7 +82,7 @@ namespace Cloud5mins.domain
                 return new UnauthorizedResult();
             }
 
-            if (principal.FindFirst(ClaimTypes.GivenName) is null)
+            if (principal.FindFirst(ClaimTypes.Name) is null)
             {
                 log.LogError("Claim not Found");
                 return new BadRequestObjectResult(new
