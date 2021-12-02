@@ -89,10 +89,16 @@ namespace Cloud5mins.domain
 
             log.LogInformation("User ID: " + principal.Identity.Name);
 
-            foreach(Claim claim in principal.Claims)
+            if(principal.GetType().GetProperty("Claims") != null)
             {
-                log.LogInformation("CLAIM TYPE: " + claim.Type + "; CLAIM VALUE: " + claim.Value)
+                log.LogInformation("principal.Claims exits.");
             }
+
+            // foreach(Claim claim in principal.Claims)
+            // {
+            //     log.LogInformation("1");
+            //     // log.LogInformation("CLAIM TYPE: " + claim.Type + "; CLAIM VALUE: " + claim.Value)
+            // }
             /* Debug code END */
             if (principal.FindFirst(ClaimTypes.Name) is null)
             {
