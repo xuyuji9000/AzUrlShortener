@@ -83,9 +83,16 @@ namespace Cloud5mins.domain
             }
             /* Debug code START */
             log.LogInformation("ClaimTypes.Name: "+ ClaimTypes.Name);
+
             foreach(ClaimsIdentity identity in principal.Identities)
                 log.LogInformation("1");
+
             log.LogInformation("User ID: " + principal.Identity.Name);
+
+            foreach(Claim claim in principal.Claims)
+            {
+                log.LogInformation("CLAIM TYPE: " + claim.Type + "; CLAIM VALUE: " + claim.Value)
+            }
             /* Debug code END */
             if (principal.FindFirst(ClaimTypes.Name) is null)
             {
