@@ -83,6 +83,8 @@ namespace Cloud5mins.domain
             }
 
             log.LogError("ClaimTypes.Name: "+ ClaimTypes.Name); // Debug code
+            foreach(ClaimsIdentity identity in principal.Identities)
+                log.LogError("1");
             if (principal.FindFirst(ClaimTypes.Name) is null)
             {
                 log.LogError("Claim not Found");
