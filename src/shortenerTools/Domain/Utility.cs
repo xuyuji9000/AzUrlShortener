@@ -81,27 +81,7 @@ namespace Cloud5mins.domain
                 log.LogWarning("Request was not authenticated.");
                 return new UnauthorizedResult();
             }
-            /* Debug code START */
-            // log.LogInformation("ClaimTypes.Name: "+ ClaimTypes.Name);
-            // log.LogInformation("ClaimTypes.Email: "+ ClaimTypes.Email);
-
-            // foreach(ClaimsIdentity identity in principal.Identities)
-            //     log.LogInformation("1");
-
-            // log.LogInformation("User ID: " + principal.Identity.Name);
-
-            // if(principal.GetType().GetProperty("Claims") != null)
-            // {
-            //     log.LogInformation("principal.Claims exits.");
-            // }
-
-            // foreach(Claim claim in principal.Claims)
-            // {
-            //     log.LogInformation("2");
-            //     log.LogInformation("CLAIM TYPE: " + claim.Type + "; CLAIM VALUE: " + claim.Value);
-            // }
-            /* Debug code END */
-            if (principal.FindFirst(ClaimTypes.Email) is null)
+            if (principal.FindFirst(ClaimTypes.NameIdentifier) is null)
             {
                 log.LogError("Claim not Found");
                 return new BadRequestObjectResult(new
