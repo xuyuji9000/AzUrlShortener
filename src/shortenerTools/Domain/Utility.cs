@@ -83,6 +83,7 @@ namespace Cloud5mins.domain
             }
             /* Debug code START */
             log.LogInformation("ClaimTypes.Name: "+ ClaimTypes.Name);
+            log.LogInformation("ClaimTypes.Email: "+ ClaimTypes.Email);
 
             foreach(ClaimsIdentity identity in principal.Identities)
                 log.LogInformation("1");
