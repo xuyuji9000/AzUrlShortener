@@ -42,7 +42,7 @@ namespace Cloud5mins.Function
             log.LogInformation($"C# HTTP trigger function processed this request: {req}");
 
             var result = new ListResponse();
-            string userEmail = string.Empty;
+            string userId = string.Empty;
             var config = new ConfigurationBuilder()
                 .SetBasePath(context.FunctionAppDirectory)
                 .AddJsonFile("local.settings.json", optional: true, reloadOnChange: true)
@@ -60,8 +60,8 @@ namespace Cloud5mins.Function
                 }
                 else
                 {
-                   userEmail = principal.FindFirst(ClaimTypes.Email).Value;
-                   log.LogInformation("Authenticated user {user}.", userEmail);
+                   userId = principal.FindFirst(ClaimTypes.NameIdentifier).Value;
+                   log.LogInformation("Authenticated user {user}.", userId);
                 }
 
                 result.UrlList = await stgHelper.GetAllShortUrlEntities();
