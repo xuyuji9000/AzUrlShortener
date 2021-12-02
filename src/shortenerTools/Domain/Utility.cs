@@ -94,11 +94,11 @@ namespace Cloud5mins.domain
                 log.LogInformation("principal.Claims exits.");
             }
 
-            // foreach(Claim claim in principal.Claims)
-            // {
-            //     log.LogInformation("1");
-            //     // log.LogInformation("CLAIM TYPE: " + claim.Type + "; CLAIM VALUE: " + claim.Value)
-            // }
+            foreach(Claim claim in principal.Claims)
+            {
+                log.LogInformation("2");
+                // log.LogInformation("CLAIM TYPE: " + claim.Type + "; CLAIM VALUE: " + claim.Value)
+            }
             /* Debug code END */
             if (principal.FindFirst(ClaimTypes.Name) is null)
             {
