@@ -82,6 +82,7 @@ namespace Cloud5mins.domain
                 return new UnauthorizedResult();
             }
 
+            log.LogError("ClaimTypes.Name: "+ ClaimTypes.Name); // Debug code
             if (principal.FindFirst(ClaimTypes.Name) is null)
             {
                 log.LogError("Claim not Found");
