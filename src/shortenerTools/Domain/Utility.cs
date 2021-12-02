@@ -82,26 +82,26 @@ namespace Cloud5mins.domain
                 return new UnauthorizedResult();
             }
             /* Debug code START */
-            log.LogInformation("ClaimTypes.Name: "+ ClaimTypes.Name);
-            log.LogInformation("ClaimTypes.Email: "+ ClaimTypes.Email);
+            // log.LogInformation("ClaimTypes.Name: "+ ClaimTypes.Name);
+            // log.LogInformation("ClaimTypes.Email: "+ ClaimTypes.Email);
 
-            foreach(ClaimsIdentity identity in principal.Identities)
-                log.LogInformation("1");
+            // foreach(ClaimsIdentity identity in principal.Identities)
+            //     log.LogInformation("1");
 
-            log.LogInformation("User ID: " + principal.Identity.Name);
+            // log.LogInformation("User ID: " + principal.Identity.Name);
 
-            if(principal.GetType().GetProperty("Claims") != null)
-            {
-                log.LogInformation("principal.Claims exits.");
-            }
+            // if(principal.GetType().GetProperty("Claims") != null)
+            // {
+            //     log.LogInformation("principal.Claims exits.");
+            // }
 
-            foreach(Claim claim in principal.Claims)
-            {
-                log.LogInformation("2");
-                log.LogInformation("CLAIM TYPE: " + claim.Type + "; CLAIM VALUE: " + claim.Value);
-            }
+            // foreach(Claim claim in principal.Claims)
+            // {
+            //     log.LogInformation("2");
+            //     log.LogInformation("CLAIM TYPE: " + claim.Type + "; CLAIM VALUE: " + claim.Value);
+            // }
             /* Debug code END */
-            if (principal.FindFirst(ClaimTypes.Name) is null)
+            if (principal.FindFirst(ClaimTypes.Email) is null)
             {
                 log.LogError("Claim not Found");
                 return new BadRequestObjectResult(new
