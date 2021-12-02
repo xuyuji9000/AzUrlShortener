@@ -97,7 +97,7 @@ namespace Cloud5mins.domain
             foreach(Claim claim in principal.Claims)
             {
                 log.LogInformation("2");
-                // log.LogInformation("CLAIM TYPE: " + claim.Type + "; CLAIM VALUE: " + claim.Value)
+                log.LogInformation("CLAIM TYPE: " + claim.Type + "; CLAIM VALUE: " + claim.Value)
             }
             /* Debug code END */
             if (principal.FindFirst(ClaimTypes.Name) is null)
