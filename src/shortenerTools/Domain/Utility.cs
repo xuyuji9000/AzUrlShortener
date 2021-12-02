@@ -81,10 +81,12 @@ namespace Cloud5mins.domain
                 log.LogWarning("Request was not authenticated.");
                 return new UnauthorizedResult();
             }
-
-            log.LogError("ClaimTypes.Name: "+ ClaimTypes.Name); // Debug code
+            /* Debug code START */
+            log.LogInformation("ClaimTypes.Name: "+ ClaimTypes.Name);
             foreach(ClaimsIdentity identity in principal.Identities)
-                log.LogError("1");
+                log.LogInformation("1");
+            log.LogInformation("User ID: " + principal.Identity.Name);
+            /* Debug code END */
             if (principal.FindFirst(ClaimTypes.Name) is null)
             {
                 log.LogError("Claim not Found");
