@@ -70,6 +70,7 @@ namespace Cloud5mins.Function
                 foreach (ShortUrlEntity url in result.UrlList)
                 {
                     url.ShortUrl = Utility.GetShortUrl(host, url.RowKey);
+                    log.LogInformation("ShortUrl: {url}", url.ShortUrl);
                 }
             }
             catch (Exception ex)
